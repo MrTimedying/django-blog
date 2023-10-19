@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<div class="main title">{{post.name}}</div>
+<div class="listing"> 
+    {% for post in object_list %}
+    Ancora per capire
+    {{post.title}}
+    {{post.author}}
+
+    {% endfor %}
+
+
+
+
+
+
+</div>
+
+
+
+
+{% endblock %}
+

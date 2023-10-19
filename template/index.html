@@ -1,0 +1,23 @@
+{% extends 'base.html' %} {% load static %}
+
+{% block content %}
+<div class="container">
+    <div class="post">
+<!-- Here I will dinamically generate blog posts -->
+        {% for post in object_list %}
+        <div class="first_title"><a href="{% url 'post_detail' post.slug %}">{{ post.title }}</a></div>
+        <div class="post meta"><img class="mini_icon" src="{% static 'blog/images/smalluser.svg' %}"> {{post.author}}, 
+            <br><img class="mini_icon" src="{% static 'blog/images/smallcal.svg' %}"> {{post.created_on}}, 
+            <br><img class="mini_icon" src="{% static 'blog/images/smalltag.svg' %}">{% for tag in post.tags.all %}
+            <a class="links" href="{% url 'article_by_tag' tag.slug %}">{{tag.name}}</a>
+            {%endfor%}
+            
+        </div>
+        <div class="post body">{{post.content|slice:":580"|safe }}[...]</div>
+        <div class="btn_read"><a id="rd_all" href="{% url 'post_detail' post.slug %}">Leggi per intero &rarr;</a></div>
+        {% endfor %}
+
+
+    </div>
+</div>
+{%endblock%}

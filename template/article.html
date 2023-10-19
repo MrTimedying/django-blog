@@ -1,0 +1,17 @@
+{% extends 'base.html' %} {% load static %}
+
+{% block content %}
+<div class="corpse">
+    <div class="title">{{post.title}}</div>
+    <div class="subtitle_meta">Autore: {{post.author}}</div>
+        <div class="content">{{post.content | safe}}
+
+        </div>
+        <div class="margin container">
+
+        </div>
+
+
+
+</div>
+{%endblock%}
